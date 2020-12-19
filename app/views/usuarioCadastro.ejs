@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cooperflora - Cadastro Usuário</title>
+    </head>
+    <body>
+        <h1>Cadastro de Usuário</h1>
+
+        <section>
+            <!-- Como a variável erros é um vetor, caso exista retorno estamos iterando sob ela e trazendo os erros para a tela-->
+            <% if(erros) {%>
+                <ul>
+                    <% for(let i = 0; i< erros.length; i++) { %>
+                        <li>
+                            <%= erros[i].msg %>
+                        </li>
+                        <% } %>
+                </ul>
+                <% } %>
+        </section>
+
+
+        <form action="/usuario/salvar" method="post">
+            <input type="text" name="nome" placeholder="Digite o nome" value="<%= usuario.nome %>"><br />
+            <input type="email" name="email" placeholder="Digite o email" value="<%= usuario.email %>"><br />
+            <input type="tel" name="telefone" placeholder="Digite o telefone" value="<%= usuario.telefone %>"><br />
+            <input type="text" name="tipo" placeholder="Digite o tipo" value="<%= usuario.tipo %>"><br />
+            <!-- TODO: Checkbox Consumidor | Organizador -->
+            <input type="submit" value="Adicionar Usuário"><br />
+        </form>
+    </body>
+</html>
+
