@@ -7,7 +7,7 @@ module.exports.usuarioListar = function (app, res, res) {
     usuarioModel.getUsuario(connection, function(err, result) {
         if (!err) {
             console.log(result);
-            res.render('consumidores', { usuario: result });
+            res.render('usuario', { usuario: result });
         }else {
             let pagina = '<h1>Problemas de conexão com o banco de dados</h1>';
             pagina = pagina+"<h2>"+err+'</h2>';
@@ -27,6 +27,6 @@ module.exports.usuarioSalvar = function (app, req, res, errors){
     
     const connection = dbConnection();
     usuarioModel.setUsuario(usuario, connection, function (err, results) {
-        res.redirect('/consumidores');
+        res.redirect('/usuario');
     });
 }

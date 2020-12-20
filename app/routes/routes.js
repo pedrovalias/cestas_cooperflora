@@ -13,7 +13,7 @@ module.exports = {
         });
     },
     rotaUsuarios: function (app) {
-        app.get('/consumidores', function (req, res) {
+        app.get('/usuario', function (req, res) {
             controllerUsuario.usuarioListar(app, req, res);
         });
     },
