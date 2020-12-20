@@ -1,5 +1,4 @@
 
-
 module.exports = {
     // Função que recebe uma conexão e um callback
     getUsuario: function(connection, callback) {

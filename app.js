@@ -5,4 +5,8 @@ rotas.rotaUsuarios(app);
 rotas.rotaCadastroUsuario(app); 
 rotas.rotaSalvarUsuario(app);      
 
+rotas.rotaLogin(app);
 
+rotas.rotaEntregas(app);
+rotas.rotaCadastroEntregas(app);
+rotas.rotaSalvarEntrega(app);
