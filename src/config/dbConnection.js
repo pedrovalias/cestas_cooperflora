@@ -4,7 +4,8 @@ module.exports = function() {
     return connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : '',
-    database : 'COOPERFLORA_DB'
+    password : 'password',
+    database : 'cooperflora_db',
+    dateStrings: true
   });
 }
