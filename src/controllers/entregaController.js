@@ -80,7 +80,7 @@ const formatarDatas = (entregas) => {
     let data = new Date(entrega.data);
     let horarioLimite = new Date(entrega.horario_limite);
     entrega.data = `${('0' + data.getUTCDate()).slice(-2)}/${('0' + data.getMonth() + 1).slice(-2)}/${data.getFullYear()}`;
-    entrega.horario_limite = `${('0' + horarioLimite.getUTCDate()).slice(-2)}/${('0' + horarioLimite.getMonth() + 1).slice(-2)}/${horarioLimite.getFullYear()} ${horarioLimite.getHours()}:${horarioLimite.getMinutes()}}`;
+    entrega.horario_limite = `${('0' + horarioLimite.getUTCDate()).slice(-2)}/${('0' + horarioLimite.getMonth() + 1).slice(-2)}/${horarioLimite.getFullYear()} ${horarioLimite.getHours()}:${horarioLimite.getMinutes()}`;
   });
 
   return entregas;
