@@ -1,12 +1,17 @@
-let app = require('./app/config/server');
-const rotas = require('./app/routes/routes');
+let app = require("./src/config/server");
+const rotas = require("./src/routes/routes");
 
 rotas.rotaUsuarios(app);
-rotas.rotaCadastroUsuario(app); 
-rotas.rotaSalvarUsuario(app);      
+rotas.rotaUsuario(app);
+rotas.rotaSalvarUsuario(app);
+rotas.rotaAtualizarUsuario(app);
+rotas.rotaExcluirUsuario(app);
 
 rotas.rotaLogin(app);
 
 rotas.rotaEntregas(app);
-rotas.rotaCadastroEntregas(app);
+rotas.rotaEntrega(app);
 rotas.rotaSalvarEntrega(app);
+rotas.rotaAtualizarEntrega(app);
+rotas.rotaExcluirEntrega(app);
+
