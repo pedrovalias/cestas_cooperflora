@@ -2,6 +2,7 @@ const dbConnection = require("../config/dbConnection");
 const usuarioController = require("../controllers/usuarioController");
 const loginController = require("../controllers/loginController");
 const entregaController = require("../controllers/entregaController");
+const pedidoController = require("../controllers/pedidoController");
 const { usuarioValidator, entregaValidator, validate } = require("./validator.js");
 
 module.exports = {
@@ -56,6 +57,21 @@ module.exports = {
   rotaExcluirEntrega: (app) => {
     app.delete("/api/entregas/:id", (req, res) =>
       entregaController.excluirEntrega(app, req, res)
+    );
+  },
+  rotaPedidosEntrega: (app) => {
+    app.get("/api/entregas/:id/pedidos", (req, res) =>
+      pedidoController.listarPedidosEntrega(app, req, res)
+    );
+  },
+  rotaSalvarPedido: (app) => {
+    app.post("/api/entregas/:id/pedidos", (req, res) =>
+      pedidoController.salvarPedido(app, req, res)
+    );
+  },
+  rotaExcluirPedido: (app) => {
+    app.delete("/api/entregas/:id/pedidos", (req, res) =>
+      pedidoController.excluirPedido(app, req, res)
     );
   },
 
