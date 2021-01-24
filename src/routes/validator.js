@@ -20,9 +20,9 @@ const usuarioValidator = () => {
 
 const entregaValidator = () => {
   return [
-    body("data").isDate({format: 'dd/MM/yyyy'}).withMessage("Data é obrigatória e deve estar no formato dd/MM/yyyy"),
+    body("data").isDate({format: 'yyyy-MM-dd'}).withMessage("Data é obrigatória e deve estar no formato dd/MM/yyyy"),
     body("horario_limite")
-      .matches(/^(\d{2})\/(\d{2})\/(\d{4}) (\d{2}):(\d{2})$/)
+      .matches(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(:(\d{2})){0,1}$/)
       .withMessage(
         "Horário limite para pedidos é obrigatório e deve estar no formato dd/MM/yyyy HH:mm:ss"
       ),

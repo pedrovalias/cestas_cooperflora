@@ -16,7 +16,7 @@ module.exports = {
   insertEntrega: function (entrega, callback) {
     // Faz uma query para inserção do entrega no banco de dados
     let sql =
-      "INSERT INTO entrega(data, horario_limite, composicao_cesta) VALUES (str_to_date(?, '%d/%m/%Y'), str_to_date(?, '%d/%m/%Y %H:%i:%s'), ?)";
+      "INSERT INTO entrega(data, horario_limite, composicao_cesta) VALUES (str_to_date(?, '%Y-%m-%d'), str_to_date(?, '%Y-%m-%dT%H:%i:%s'), ?)";
     let params = [
       entrega.data,
       entrega.horario_limite,
@@ -27,7 +27,7 @@ module.exports = {
   updateEntrega: function (id, entrega, callback) {
     // Faz uma query para update do entrega no banco de dados
     let sql =
-      "UPDATE entrega SET data = str_to_date(?, '%d/%m/%Y'), horario_limite = str_to_date(?, '%d/%m/%Y %H:%i:%s'), composicao_cesta = ?  WHERE id = ?";
+      "UPDATE entrega SET data = str_to_date(?, '%Y-%m-%d'), horario_limite = str_to_date(?, '%Y-%m-%dT%H:%i:%s'), composicao_cesta = ?  WHERE id = ?";    
     let params = [
       entrega.data,
       entrega.horario_limite,

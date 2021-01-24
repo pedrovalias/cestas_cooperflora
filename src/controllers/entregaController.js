@@ -19,7 +19,7 @@ module.exports.listarEntrega = function (app, req, res) {
       if (result.length === 0) {
         res.status(404).send("Entrega não encontrada.");
       } else {
-        res.status(200).send(formatarDatas(result));
+        res.status(200).send(result);
       }
     } else {
       res.status(500).send({
@@ -34,7 +34,7 @@ module.exports.salvarEntrega = function (app, req, res) {
   let entrega = req.body;
   entregaModel.insertEntrega(entrega, function (err, result) {
     if (!err) {
-      res.status(201).redirect(result.insertId);
+      res.status(201).send();
     } else {
       if (err.code === "ER_DUP_ENTRY") {
         return res
@@ -52,7 +52,7 @@ module.exports.salvarEntrega = function (app, req, res) {
 module.exports.atualizarEntrega = function (app, req, res) {
   entregaModel.updateEntrega(req.params.id, req.body, function (err, result) {
     if (!err) {
-      res.status(200).redirect(req.params.id);
+      res.status(200).send();
     } else {
       if (err.code === "ER_DUP_ENTRY") {
         return res
