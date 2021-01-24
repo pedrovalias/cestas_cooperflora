@@ -3,7 +3,7 @@ const entregaModel = require("../models/entregaModel");
 module.exports.listarEntregas = function (app, req, res) {
   entregaModel.getEntregas(function (err, result) {
     if (!err) {
-      res.status(200).send(formatarDatas(result));
+      res.status(200).send(result);
     } else {
       res.status(500).send({
         erro: "Problemas de conexão com o banco de dados",
@@ -39,7 +39,7 @@ module.exports.salvarEntrega = function (app, req, res) {
       if (err.code === "ER_DUP_ENTRY") {
         return res
           .status(400)
-          .send("Já existe uma entrega cadastrada para a mesma data.");
+          .send({erro: "Já existe uma entrega cadastrada para a mesma data." });
       }
       res.status(500).send({
         erro: "Problemas de conexão com o banco de dados",
@@ -57,7 +57,7 @@ module.exports.atualizarEntrega = function (app, req, res) {
       if (err.code === "ER_DUP_ENTRY") {
         return res
           .status(400)
-          .send("Já existe uma entrega cadastrada para a mesma data.");
+          .send({erro: "Já existe uma outra entrega cadastrada para a mesma data." });
       }
       res.status(500).send({
         erro: "Problemas de conexão com o banco de dados",

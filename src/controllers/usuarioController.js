@@ -37,7 +37,7 @@ module.exports.salvarUsuario = function (app, req, res) {
       res.status(201).redirect(result.insertId);
     } else {
       if (err.code === 'ER_DUP_ENTRY') {
-        return res.status(400).send("Email já cadastrado.");
+        return res.status(400).send({erro: "Já existe um usuário cadastrado com este e-mail."});
       }
       res.status(500).send({
         erro: "Problemas de conexão com o banco de dados",
@@ -53,7 +53,7 @@ module.exports.atualizarUsuario = function (app, req, res) {
       res.status(200).redirect(req.params.id);
     } else {
       if (err.code === 'ER_DUP_ENTRY') {
-        return res.status(400).send("Email já cadastrado.");
+        return res.status(400).send({erro: "Já existe um outro usuário cadastrado com este e-mail."});
       }
       res.status(500).send({
         erro: "Problemas de conexão com o banco de dados",

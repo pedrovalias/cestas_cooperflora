@@ -1,5 +1,4 @@
 const pedidoModel = require("../models/pedidoModel");
-const { insertUsuario } = require("../models/usuarioModel");
 
 module.exports.listarPedidosEntrega = function (app, req, res) {
   getPedidosEntrega(req, res, function (pedidos) {
@@ -46,7 +45,7 @@ const validarEInserirPedido = function (novoPedido, req, res) {
     if (!pedidoValido) {
       return res
         .status(400)
-        .send("Já existe um pedido criado para este usuário.");
+        .send({erro: "Você já realizou o pedido para esta entrega."});
     }
 
     inserirPedido(novoPedido, req, res);
