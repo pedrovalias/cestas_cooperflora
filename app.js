@@ -18,4 +18,3 @@ rotas.rotaExcluirEntrega(app);
 rotas.rotaPedidosEntrega(app);
 rotas.rotaSalvarPedido(app);
 rotas.rotaExcluirPedido(app);
-

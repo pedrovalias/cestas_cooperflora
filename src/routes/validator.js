@@ -1,5 +1,4 @@
 const { validationResult, body } = require("express-validator");
-const { emailExiste } = require("../controllers/usuarioController");
 
 const usuarioValidator = () => {
   return [
@@ -27,7 +26,7 @@ const entregaValidator = () => {
         "Horário limite para pedidos é obrigatório e deve estar no formato dd/MM/yyyy HH:mm:ss"
       ),
     body("composicao_cesta")
-      .isLength({ min: 10 })
+      .isLength({ min: 5 })
       .withMessage("Composição da cesta é obrigatória"),
   ];
 };
