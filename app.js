@@ -3,6 +3,7 @@ const rotas = require("./src/routes/routes");
 
 rotas.rotaUsuarios(app);
 rotas.rotaUsuario(app);
+rotas.rotaBuscaUsuarios(app);
 rotas.rotaSalvarUsuario(app);
 rotas.rotaAtualizarUsuario(app);
 rotas.rotaExcluirUsuario(app);

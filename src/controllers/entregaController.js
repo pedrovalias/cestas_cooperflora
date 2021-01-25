@@ -74,7 +74,7 @@ module.exports.excluirEntrega = function (app, req, res) {
       if (result.affectedRows === 0) {
         res.status(404).send("Entrega não encontrada.");
       } else {
-        res.status(200).redirect("/api/entregas");
+        res.status(200).send();
       }
     } else {
       res.status(500).send({

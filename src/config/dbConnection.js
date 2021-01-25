@@ -2,10 +2,11 @@ var mysql = require('mysql');
 
 module.exports = function() {
     return connection = mysql.createPool({
-    host     : 'localhost',
-    user     : 'root',
-    password : 'password',
-    database : 'cooperflora_db',
+    host     : 'db4free.net',
+    port     : '3306',
+    user     : 'cestas_admin',
+    password : 'cestas@123',
+    database : 'cestas_db',
     dateStrings: true
   });
 }

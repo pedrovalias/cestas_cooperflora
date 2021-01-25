@@ -3,13 +3,22 @@ const usuarioController = require("../controllers/usuarioController");
 const loginController = require("../controllers/loginController");
 const entregaController = require("../controllers/entregaController");
 const pedidoController = require("../controllers/pedidoController");
-const { usuarioValidator, entregaValidator, validate } = require("./validator.js");
+const {
+  usuarioValidator,
+  entregaValidator,
+  validate,
+} = require("./validator.js");
 
 module.exports = {
   // ROTAS USUARIO
   rotaUsuarios: (app) => {
     app.get("/api/usuarios", (req, res) =>
       usuarioController.listarUsuarios(app, req, res)
+    );
+  },
+  rotaBuscaUsuarios: (app) => {
+    app.get("/api/busca/usuarios", (req, res) =>
+      usuarioController.buscarUsuarios(app, req, res)
     );
   },
   rotaUsuario: (app) => {
@@ -35,7 +44,7 @@ module.exports = {
 
   // ROTAS ENTREGAS
   rotaEntregas: (app) => {
-    app.get("/api/entregas", (req, res) => 
+    app.get("/api/entregas", (req, res) =>
       entregaController.listarEntregas(app, req, res)
     );
   },

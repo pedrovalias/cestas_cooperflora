@@ -1,22 +1,18 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
 let app = express();
-
-app.use(cors());
-
 let port = process.env.port || 4000;
 
-// Utilizando o ejs 
-app.set('view engine', 'ejs');
-app.set('views', './app/views');
-
 // Para funcionar o body-parser
-app.use(bodyParser.json({extended: true}));
+app.use(bodyParser.json({ extended: true }));
 
-app.listen(port, function() {
-    console.log("Servidor rodando na porta: ", port);   
+app.use(cors());
+// app.use("/api/entregas", authMiddleware);
+
+app.listen(port, function () {
+  console.log("Servidor rodando na porta: ", port);
 });
 
 // Exporta a variável para poder ser chamada em arquivos externos

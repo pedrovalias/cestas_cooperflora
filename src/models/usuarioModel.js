@@ -8,6 +8,11 @@ module.exports = {
     let sql = "SELECT * FROM usuario";
     connection.query(sql, callback);
   },
+  getUsuariosByEmail: function (email, callback) {
+    // Faz a query de SELECT no banco de dados para carregar todos os usuários
+    let sql = "SELECT * FROM usuario WHERE email = ?";
+    connection.query(sql, email, callback);
+  },
   getUsuario: function (id, callback) {
     // Faz a query de SELECT no banco de dados para carregar usuário pelo id
     let sql = "SELECT * FROM usuario WHERE id = ?";
@@ -21,9 +26,10 @@ module.exports = {
   updateUsuario: function (id, usuario, callback) {
     // Faz uma query para update do usuário no banco de dados
     let sql =
-      "UPDATE usuario SET nome = ?, email = ?, telefone = ?, perfil = ?  WHERE id = ?";
+      "UPDATE usuario SET nome = ?, id_autenticacao = ?, email = ?, telefone = ?, perfil = ?  WHERE id = ?";
     let params = [
       usuario.nome,
+      usuario.id_autenticacao,
       usuario.email,
       usuario.telefone,
       usuario.perfil,
@@ -39,5 +45,5 @@ module.exports = {
   emailExiste: (email, callback) => {
     let sql = "SELECT * FROM usuario WHERE email = ?";
     connection.query(sql, email, callback);
-  }
+  },
 };
