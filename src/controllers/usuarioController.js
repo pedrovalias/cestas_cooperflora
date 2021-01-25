@@ -34,7 +34,7 @@ module.exports.salvarUsuario = function (app, req, res) {
   let usuario = req.body;
   usuarioModel.insertUsuario(usuario, function (err, result) {
     if (!err) {
-      res.status(201).redirect(result.insertId);
+      res.status(201).send();
     } else {
       if (err.code === 'ER_DUP_ENTRY') {
         return res.status(400).send({erro: "Já existe um usuário cadastrado com este e-mail."});
@@ -50,7 +50,7 @@ module.exports.salvarUsuario = function (app, req, res) {
 module.exports.atualizarUsuario = function (app, req, res) {
   usuarioModel.updateUsuario(req.params.id, req.body, function (err, result) {
     if (!err) {
-      res.status(200).redirect(req.params.id);
+      res.status(200).send();
     } else {
       if (err.code === 'ER_DUP_ENTRY') {
         return res.status(400).send({erro: "Já existe um outro usuário cadastrado com este e-mail."});
