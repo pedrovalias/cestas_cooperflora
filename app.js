@@ -8,8 +8,6 @@ rotas.rotaSalvarUsuario(app);
 rotas.rotaAtualizarUsuario(app);
 rotas.rotaExcluirUsuario(app);
 
-rotas.rotaLogin(app);
-
 rotas.rotaEntregas(app);
 rotas.rotaEntrega(app);
 rotas.rotaSalvarEntrega(app);

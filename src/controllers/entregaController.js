@@ -39,7 +39,9 @@ module.exports.salvarEntrega = function (app, req, res) {
       if (err.code === "ER_DUP_ENTRY") {
         return res
           .status(400)
-          .send({erro: "Já existe uma entrega cadastrada para a mesma data." });
+          .send({
+            erro: "Já existe uma entrega cadastrada para a mesma data.",
+          });
       }
       res.status(500).send({
         erro: "Problemas de conexão com o banco de dados",
@@ -57,7 +59,9 @@ module.exports.atualizarEntrega = function (app, req, res) {
       if (err.code === "ER_DUP_ENTRY") {
         return res
           .status(400)
-          .send({erro: "Já existe uma outra entrega cadastrada para a mesma data." });
+          .send({
+            erro: "Já existe uma outra entrega cadastrada para a mesma data.",
+          });
       }
       res.status(500).send({
         erro: "Problemas de conexão com o banco de dados",
@@ -83,23 +87,4 @@ module.exports.excluirEntrega = function (app, req, res) {
       });
     }
   });
-};
-
-const formatarDatas = (entregas) => {
-  entregas.forEach((entrega) => {
-    let data = new Date(entrega.data);
-    let horarioLimite = new Date(entrega.horario_limite);
-    entrega.data = `${("0" + data.getUTCDate()).slice(-2)}/${(
-      "0" +
-      data.getMonth() +
-      1
-    ).slice(-2)}/${data.getFullYear()}`;
-    entrega.horario_limite = `${("0" + horarioLimite.getUTCDate()).slice(
-      -2
-    )}/${("0" + horarioLimite.getMonth() + 1).slice(
-      -2
-    )}/${horarioLimite.getFullYear()} ${horarioLimite.getHours()}:${horarioLimite.getMinutes()}`;
-  });
-
-  return entregas;
 };

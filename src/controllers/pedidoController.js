@@ -70,6 +70,17 @@ const getPedidosEntrega = function (req, res, callback) {
     if (!err) {
       let pedidos = JSON.parse(JSON.stringify(result));
       return callback(pedidos);
+
+      // pedidos.forEach((pedido) => {
+      //   getUsuario(pedido.id_usuario, (err, result) => {
+      //     if (!err) {
+      //       pedidosComNomes.nome_usuario = result[0].nome;
+      //       console.log(pedidosComNomes);
+      //     } else {
+      //       console.log(err);
+      //     }
+      //   });
+      // });
     } else {
       res.status(500).send({
         erro: "Problemas de conexão com o banco de dados",

@@ -5,7 +5,8 @@ module.exports = {
   // Função que recebe um callback
   getPedidosEntrega: function (idEntrega, callback) {
     // Faz a query de SELECT no banco de dados para carregar todos os pedidos
-    let sql = "SELECT * FROM pedido WHERE id_entrega = ?";
+    let sql =
+      "SELECT * FROM pedido, usuario WHERE id_entrega = ? AND usuario.id = pedido.id_usuario";
     connection.query(sql, idEntrega, callback);
   },
   insertPedido: function (pedido, callback) {

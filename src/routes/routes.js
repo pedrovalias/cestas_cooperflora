@@ -1,6 +1,4 @@
-const dbConnection = require("../config/dbConnection");
 const usuarioController = require("../controllers/usuarioController");
-const loginController = require("../controllers/loginController");
 const entregaController = require("../controllers/entregaController");
 const pedidoController = require("../controllers/pedidoController");
 const {
@@ -82,12 +80,5 @@ module.exports = {
     app.delete("/api/entregas/:id/pedidos", (req, res) =>
       pedidoController.excluirPedido(app, req, res)
     );
-  },
-
-  // ROTAS LOGIN
-  rotaLogin: function (app) {
-    app.get("/", function (req, res) {
-      loginController.login(app, req, res);
-    });
   },
 };
